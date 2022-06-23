@@ -1,0 +1,25 @@
+{
+  "name": "tanks",
+  "version": "1.0.0",
+  "description": "tanks web",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AstorLevy/TANKS.git"
+  },
+  "author": "Astor Levy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AstorLevy/TANKS/issues"
+  },
+  "homepage": "https://github.com/AstorLevy/TANKS#readme",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

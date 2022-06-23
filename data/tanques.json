@@ -1,0 +1,19 @@
+[
+    {
+        "id": 1,
+        "country": "Aleman",
+        "name": "TIGER 1",
+        "description": "sdfasdgasdf",
+        "tipo": "heavy",
+        "img": "TIGER1.png"
+    },
+
+    {
+        "id": 2,
+        "country": "Americano",
+        "name": "SHERMAN-M4A3E8",
+        "description": "sdfasdgasdf",
+        "tipo": "medium",
+        "img": "sherman-m4a3e8-removebg-preview.png"
+    }
+]

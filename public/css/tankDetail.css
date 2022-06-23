@@ -1,0 +1,23 @@
+.bigbox {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: solid red 1px;
+}
+
+.bigbox img{
+    width: 30%
+}
+
+.smallbox {
+    width: 70%;
+    background-color: black;
+    border: solid red 1px;
+}
+
+.smallbox p{
+    color: white;
+    padding: 10px;
+    font-size: 1.8rem;
+}
+

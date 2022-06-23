@@ -20,5 +20,6 @@ const upload = multer({storage})
 //rutas
 router.get("/", indexController.home);
 router.get("/tankDetail/:id", indexController.detalle)
+router.delete("/:id", indexController.delete)
 
 module.exports = router;

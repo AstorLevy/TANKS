@@ -4,13 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/tankDetail.css">
     <title>tankDetail</title>
 </head>
 <body>
 
-    <p><%= detalleDeTanque.name %></p>
-    <img class="phototank" src= "/imgs/<%= detalleDeTanque.img %>">
-
+    <div class="bigbox">
+        <img class="phototank" src= "/imgs/<%= detalleDeTanque.img %>">
+        <div class="smallbox">
+            <p class="tankname"><%= detalleDeTanque.name %></p>
+            <P class="tankdescription">DESCRIPCÓN: <%= detalleDeTanque.description %></P>
+            <div class="caracteristicas">
+                <p class="country">País:
+                    <%= detalleDeTanque.country %>
+                </p>
+                <p class="type">Tipo:
+                    <%= detalleDeTanque.tipo %>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a class="volver" href="/"><button class="buttom">BACK</button></a>
+        <form method="POST" action="/<%= detalleDeTanque.id%>?_method=DELETE">
+            <button type="submit" class="borrar">ELIMINAR</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editTank</title>
+</head>
+<body>
+    <div class="smallbox">
+        <img class="phototank" src= "/imgs/<%= detalleDeTanque.img %>">
+        <form action="/edit/<%= detalleDeTanque.id%>?_method=PUT" method="POST">
+            <div class="formedit">
+                <label>NOMBRE:</label>
+                <input type="text" name="name" value="<%=detalleDeTanque.name%>">
+            </div> 
+
+            <div class="formedit">
+                <label>PAÍS:</label>
+                <input type="text" name="country" value="<%=detalleDeTanque.country%>">
+            </div>
+
+            <div class="formedit">
+                <label>TIPO:</label>
+                <input type="text" name="tipo" value="<%=detalleDeTanque.tipo%>">
+            </div>
+
+            <div class="formedit">
+                <label>DESCRIPCÓN:</label>
+                <input type="text" name="description" value="<%=detalleDeTanque.description%>">
+            </div>
+            <a class="volver" href="/"><button class="buttom">BACK</button></a>
+            <button  type="submit">ACTUALIZAR</button>
+        </form>
+    </div>
+</body>
+</html>

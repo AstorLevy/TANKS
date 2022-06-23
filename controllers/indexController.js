@@ -25,7 +25,32 @@ const indexController = {
         );
         res.render("home", {tanques})
     },
-    
+    editarA: (req, res) => {
+        let id = req.params.id
+        let detalleDeTanque = tanques.find((tanque) => tanque.id == id)
+        res.render("editTank", {detalleDeTanque})
+    },
+
+    editB: (req, res) => {
+        let id = req.params.id;
+        const {country, name, description, tipo} = req.body;
+        tanques.forEach(item => {
+            if(item.id == id){
+                item.country = country;
+                item.name = name;
+                item.description = description;
+                item.tipo = tipo;
+            }
+        });
+        fs.writeFileSync(
+            path.join(__dirname, "../data/tanques.json"),
+            JSON.stringify(tanques, null, 4),
+            {
+                encoding: "utf-8"
+            }
+        );
+        res.render("home", {tanques})
+    }
 }
 
 module.exports = indexController;

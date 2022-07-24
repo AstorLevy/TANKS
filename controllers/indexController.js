@@ -33,15 +33,41 @@ const indexController = {
 
     editB: (req, res) => {
         let id = req.params.id;
-        const {country, name, description, tipo} = req.body;
+        const {country, name, description, tipo, img} = req.body;
         tanques.forEach(item => {
             if(item.id == id){
                 item.country = country;
                 item.name = name;
                 item.description = description;
                 item.tipo = tipo;
+                item.img = req.file
             }
         });
+        fs.writeFileSync(
+            path.join(__dirname, "../data/tanques.json"),
+            JSON.stringify(tanques, null, 4),
+            {
+                encoding: "utf-8"
+            }
+        );
+        res.render("home", {tanques})
+    },
+    crearA: (req, res) => {
+        res.render("tankCreate")
+    },
+    crearB: (req, res) => {
+        let newId = tanques[(tanques.length - 1)].id + 1
+        let newtanque = {
+            id: newId,
+            country: req.body.country,
+            name: req.body.name,
+            description: req.body.description,
+            tipo: req.body.tipo,
+            img: req.file
+        };
+
+        tanques.push(newtanque);
+
         fs.writeFileSync(
             path.join(__dirname, "../data/tanques.json"),
             JSON.stringify(tanques, null, 4),

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/users/login" method="POST" enctype="multipart/form-data">
+        <div class="formedit">
+            <label>GMAIL:</label>
+            <input type="text" name="email">
+            <p class="text-danger">
+                <%= (locals?.errors && errors.email !=undefined) ? errors.email.msg : '' %>
+            </p>
+        </div>
+        <div class="formedit">
+            <label>CONTRASEÑA:</label>
+            <input type="text" name="password">
+            <p class="text-danger">
+                <%= (locals?.errors && errors.password !=undefined) ? errors.password.msg : '' %>
+            </p>
+        </div>
+        <div class="login">
+            <input type="submit" value="INICIAR SESION">
+        </div>
+    </form>
+</body>
+</html>

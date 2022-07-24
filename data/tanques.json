@@ -2,7 +2,7 @@
     {
         "id": 1,
         "country": "Americano",
-        "name": "SHERMAN-M4A3E8",
+        "name": "SHERMAN-M4A3E",
         "description": "El M4 Sherman, oficialmente Medium Tank, M4, fue el tanque medio más utilizado por los Estados Unidos y los aliados occidentales en la Segunda Guerra Mundial. El M4 Sherman demostró ser confiable, relativamente barato de producir y disponible en grandes cantidades.",
         "tipo": "medium tank",
         "img": "sherman-m4a3e8-removebg-preview.png"

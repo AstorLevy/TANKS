@@ -1,0 +1,9 @@
+[
+    {
+        "userID": 1,
+        "email": "namekiano2015@gmail.com",
+        "name": "Astor",
+        "password": "$2b$10$oEStsrd3YNO43iZTsmDZOeKCt5jaYHCpqGrjGI/g2Q17xWXG2R7ne",
+        "confirmPassword": "1234"
+    }
+]

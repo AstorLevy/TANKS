@@ -29,5 +29,7 @@ router.post("/login", validates.validateLogin, userController.loginB);
 router.get("/register", userController.registerA);
 //Register Presses
 router.post("/register", validates.validateRegister, userController.registerB);
+//home del perfil
+router.get("/profile", userController.profile);
 
 module.exports = router;

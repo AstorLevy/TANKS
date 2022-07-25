@@ -1,6 +1,8 @@
 let fs = require("fs")
 let path = require("path")
 const { validationResult } = require("express-validator");
+const User = require("../models/User")
+const bcrypt = require('bcrypt');
 
 userController = {
 
@@ -10,14 +12,29 @@ userController = {
 
     loginB: (req, res) => {
 
-        const errors = validationResult(req);
+        let userToLogin = User.findByField("email", req.body.email);
 
-        if(errors.isEmpty()){
-            //...
-        }else{
-            res.render("login", { errors: errors.mapped(), old: req.body });
+        if(userToLogin) {
+            let isOk = bcrypt.compareSync(req.body.password, userToLogin.password)
+            if (isOk){
+                return res.redirect("/users/profile");
+            }
+            return res.render("login", {
+                errors: {
+                    email: {
+                        msg: "No es la contraseña"
+                    }
+                }
+            });
         }
         
+        return res.render("login", {
+            errors: {
+                email: {
+                    msg: "No se encuentra el email en la base de datos"
+                }
+            }
+        });
     },
     
     registerA: (req, res) => {
@@ -26,13 +43,24 @@ userController = {
 
     registerB: (req, res) => {
 
-        const errors = validationResult(req);
-
-        if(errors.isEmpty()){
-            //...
-        }else{
-            res.render("register", { errors: errors.mapped(), old: req.body });
+        let userToCreate = {
+            ...req.body,
+            password: bcrypt.hashSync(req.body.password, 10)
         }
+
+        let userInDB = User.findByField("email", req.body.email);
+
+        if(userInDB){
+            return res.render ("register", {
+                errors: {email: {msg: "Este email ya está registrado"},old: req.body}})
+        }
+
+        User.create(userToCreate)
+        res.redirect("login")
+
+    },
+    profile: (req, res) => {
+        res.render("profile")
     }
 }
 

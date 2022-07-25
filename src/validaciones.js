@@ -21,14 +21,13 @@ const validates = {
             return (ext.includes(extFile));
         }).withMessage("Debes subir una imagen de perfil")
     ],
-    //---------------------------------------------------------------------------------------
 
-    //configuracion validaciones de logueo --------------------------------------------------
+
     validateLogin : [
         check("user").notEmpty().withMessage("Campo obligatorio").bail().isEmail().withMessage("Email no válido"),
         check("password").notEmpty().withMessage("Campo obligatorio")
     ]
-    //---------------------------------------------------------------------------------------
+
 }
 
 module.exports = validates;

@@ -17,7 +17,7 @@
         </div>
         <div class="formedit">
             <label>CONTRASEÑA:</label>
-            <input type="text" name="password">
+            <input type="password" name="password">
             <p class="text-danger">
                 <%= (locals?.errors && errors.password !=undefined) ? errors.password.msg : '' %>
             </p>

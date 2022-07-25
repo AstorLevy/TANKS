@@ -34,13 +34,14 @@ const indexController = {
     editB: (req, res) => {
         let id = req.params.id;
         const {country, name, description, tipo, img} = req.body;
+        let file = req.file
         tanques.forEach(item => {
             if(item.id == id){
                 item.country = country;
                 item.name = name;
                 item.description = description;
                 item.tipo = tipo;
-                item.img = req.file
+                item.img = file.fileName
             }
         });
         fs.writeFileSync(
@@ -57,13 +58,14 @@ const indexController = {
     },
     crearB: (req, res) => {
         let newId = tanques[(tanques.length - 1)].id + 1
+        let file = req.file
         let newtanque = {
             id: newId,
             country: req.body.country,
             name: req.body.name,
             description: req.body.description,
             tipo: req.body.tipo,
-            img: req.file
+            img: file.fileName
         };
 
         tanques.push(newtanque);
